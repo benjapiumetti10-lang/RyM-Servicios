@@ -8,7 +8,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="RyM Servicios · Modelos y herramentales para fundición">
 <meta property="og:description" content="Herramentales de alta precisión en madera, aluminio, telgopor e impresión 3D. San Francisco, Córdoba.">
-<meta property="og:image" content="https://benjapiumetti10-lang.github.io/RyM-Servicios/img/t/carcasa.jpg">
+<meta property="og:image" content="https://benjapiumetti10-lang.github.io/RyM-Servicios/img/r/portada.jpg">
 <meta property="og:url" content="https://benjapiumetti10-lang.github.io/RyM-Servicios/">
 <link rel="icon" href="img/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +62,7 @@ nav .btn{padding:11px 15px;opacity:1}
 .facts b{font:700 21px/1 var(--f-head);color:var(--navy);display:block}
 .facts span{font-size:14px;color:var(--ink-2);display:block;margin-top:4px}
 .hero figure{position:relative;box-shadow:0 18px 40px -24px rgba(18,48,79,.45)}
-.hero figure img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.hero figure img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#eef0f2}
 .hero figcaption{position:absolute;left:0;bottom:0;background:rgba(11,33,57,.82);color:#fff;font-size:13.5px;padding:7px 12px}
 
 /* Qué hacemos */
@@ -89,7 +89,7 @@ nav .btn{padding:11px 15px;opacity:1}
 .gallery figure{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
 .gallery figure[hidden]{display:none}
 .gallery button{display:block;padding:0;border:0;background:#E9ECEF;cursor:zoom-in;width:100%}
-.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;background:#eef0f2}
 .gallery figcaption{padding:10px 12px 12px}
 .gallery figcaption b{font:700 15px/1.3 var(--f-head);display:block}
 .gallery figcaption span{font-size:14px;color:var(--ink-2);display:block;margin-top:2px}
@@ -101,23 +101,16 @@ dialog p{color:#fff;font:600 15px/1.3 var(--f-head);margin-top:10px;text-align:c
 dialog .x{position:fixed;top:12px;right:14px;background:#fff;color:var(--navy);border:0;font:700 15px/1 var(--f-head);padding:10px 14px;cursor:pointer}
 
 /* Proceso */
-.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:22px;counter-reset:s}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 22px;margin-top:22px;counter-reset:s}
 .steps li{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;position:relative}
-.steps img{aspect-ratio:16/10;width:100%;object-fit:contain;background:#fff;border-bottom:1px solid var(--line)}
-.steps .t{padding:10px 14px 14px}
-.steps h3{font:700 16px/1.25 var(--f-head);display:flex;gap:8px;align-items:center}
-.steps h3::before{counter-increment:s;content:counter(s);font:700 12px/1 var(--f-head);color:#fff;background:var(--navy);min-width:22px;height:22px;display:grid;place-items:center}
-.steps p{color:var(--ink-2);font-size:14.5px;margin-top:5px}
-.badge{position:absolute;top:8px;left:8px;font:700 12px/1 var(--f-head);background:var(--bronze);color:#fff;padding:5px 7px}
+.steps li:not(:last-child):not(:nth-child(4n))::after{content:"";position:absolute;right:-17px;top:calc(37.5% - 9px);width:12px;height:18px;background:var(--bronze);clip-path:polygon(0 0,100% 50%,0 100%);z-index:1}
+.steps img{aspect-ratio:4/3;width:100%;object-fit:contain;background:#fff;border-bottom:1px solid var(--line)}
+.steps .t{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px}
+.steps .t::before{counter-increment:s;content:counter(s);font:700 13px/1 var(--f-head);color:#fff;background:var(--navy);width:26px;height:26px;display:grid;place-items:center}
+.steps h3{font:700 17px/1.25 var(--f-head)}
+.steps p{color:var(--ink-2);font-size:15px}
+.badge{position:absolute;top:10px;left:10px;font:700 12px/1 var(--f-head);background:var(--bronze);color:#fff;padding:6px 8px}
 
-/* Video */
-.video .c{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(20px,4vw,48px);align-items:center}
-.yt{position:relative;aspect-ratio:16/9;background:#000;border:0;padding:0;width:100%;cursor:pointer;overflow:hidden}
-.yt img{width:100%;height:100%;object-fit:cover;opacity:.85}
-.yt span{position:absolute;inset:0;margin:auto;width:72px;height:50px;background:#c4302b;border-radius:12px;display:grid;place-items:center}
-.yt span::after{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:4px}
-.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.credit{font-size:13px;color:var(--ink-2);margin-top:8px}
 
 /* Contacto */
 .contact{background:var(--navy);color:#fff}
@@ -144,7 +137,7 @@ footer img{height:34px;width:auto}
 @media (max-width:860px){
   body{font-size:16px}
   nav a:not(.btn){display:none}
-  .hero .c,.video .c,.contact .c{grid-template-columns:minmax(0,1fr)}
+  .hero .c,.contact .c{grid-template-columns:minmax(0,1fr)}
   .hero figure{order:-1}
   .hero .lead{font-size:16.5px}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -153,7 +146,8 @@ footer img{height:34px;width:auto}
   .services p{font-size:14px}
   /* Proceso: tira deslizable en el celular */
   .steps{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:8px;margin-inline:calc(-1*clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px)}
-  .steps li{flex:0 0 72%;scroll-snap-align:start}
+  .steps li{flex:0 0 74%;scroll-snap-align:start}
+  .steps li::after{display:none!important}
   .swipe{display:block!important}
 }
 @media (max-width:520px){
@@ -204,8 +198,8 @@ footer img{height:34px;width:auto}
         </div>
       </div>
       <figure>
-        <img src="img/t/carcasa.jpg" alt="Modelo de carcasa en madera laqueada, partido en dos mitades" width="1100" height="623" fetchpriority="high">
-        <figcaption>Modelo de carcasa en madera, partido en dos</figcaption>
+        <img src="img/r/portada.jpg" alt="Modelo de válvula de retención en madera laqueada, con portadas en negro" width="1100" height="688" fetchpriority="high">
+        <figcaption>Modelo de válvula de retención, madera laqueada</figcaption>
       </figure>
     </div>
   </div>
@@ -248,7 +242,7 @@ footer img{height:34px;width:auto}
       <div class="head-row">
         <div>
           <p class="eyebrow">Trabajos</p>
-          <h2>Trabajos realizados</h2>
+          <h2>Lo que hacemos</h2>
         </div>
         <div class="filters" role="group" aria-label="Filtrar trabajos">
           <button type="button" data-f="todos" aria-pressed="true">Todos</button>
@@ -259,24 +253,20 @@ footer img{height:34px;width:auto}
         </div>
       </div>
       <div class="gallery" id="gallery">
-        <figure data-r="madera"><button type="button"><img src="img/t/valvula-modelo.jpg" alt="Modelo de válvula de retención en madera laqueada" loading="lazy" width="992" height="695"></button><figcaption><b>Válvula de retención</b><span>Modelo en madera, 8 pulgadas</span></figcaption></figure>
-        <figure data-r="noyos madera"><button type="button"><img src="img/t/caja-noyo-madera.jpg" alt="Caja de noyo grande en madera con portada negra" loading="lazy" width="1100" height="672"></button><figcaption><b>Caja de noyo</b><span>Madera, con portada pintada</span></figcaption></figure>
-        <figure data-r="aluminio"><button type="button"><img src="img/t/polea.jpg" alt="Polea fundida en aluminio sobre su modelo en madera" loading="lazy" width="385" height="520"></button><figcaption><b>Polea de rayos</b><span>Modelo y pieza fundida</span></figcaption></figure>
-        <figure data-r="madera"><button type="button"><img src="img/t/sinfin.jpg" alt="Modelo de sin fin en el torno" loading="lazy" width="942" height="551"></button><figcaption><b>Sin fin</b><span>Modelo torneado en madera</span></figcaption></figure>
-        <figure data-r="noyos aluminio"><button type="button"><img src="img/t/placa-modelo.jpg" alt="Placa modelo de aluminio con doce figuras" loading="lazy" width="361" height="552"></button><figcaption><b>Placa modelo</b><span>Aluminio, 12 figuras</span></figcaption></figure>
-        <figure data-r="3d"><button type="button"><img src="img/t/valvula-3d.jpg" alt="Válvula de retención dibujada en 3D" loading="lazy" width="927" height="701"></button><figcaption><b>Válvula en 3D</b><span>Diseño a partir de la muestra</span></figcaption></figure>
-        <figure data-r="madera"><button type="button"><img src="img/t/valvula-fundida.jpg" alt="Cuerpo de válvula recién fundido" loading="lazy" width="678" height="702"></button><figcaption><b>Cuerpo de válvula</b><span>Pieza recién fundida</span></figcaption></figure>
-        <figure data-r="aluminio"><button type="button"><img src="img/t/aluminio-carretel.jpg" alt="Modelo de aluminio pulido" loading="lazy" width="396" height="487"></button><figcaption><b>Modelo en aluminio</b><span>Para alta producción</span></figcaption></figure>
-        <figure data-r="3d"><button type="button"><img src="img/t/impresos-3d.jpg" alt="Cuatro modelos impresos en 3D" loading="lazy" width="1100" height="428"></button><figcaption><b>Modelos impresos</b><span>Con la contracción aplicada</span></figcaption></figure>
-        <figure data-r="noyos madera"><button type="button"><img src="img/t/caja-noyo-valvula.jpg" alt="Media caja de noyo para válvula" loading="lazy" width="1027" height="699"></button><figcaption><b>Caja de noyo de válvula</b><span>Madera laqueada, con espigas</span></figcaption></figure>
-        <figure data-r="aluminio"><button type="button"><img src="img/t/aluminio-bridado.jpg" alt="Modelo de aluminio de cuerpo bridado" loading="lazy" width="371" height="417"></button><figcaption><b>Cuerpo bridado</b><span>Modelo en aluminio</span></figcaption></figure>
-        <figure data-r="3d"><button type="button"><img src="img/t/pieza-3d.jpg" alt="Pieza compleja dibujada en 3D" loading="lazy" width="1100" height="616"></button><figcaption><b>Pieza compleja en 3D</b><span>Con nervios, salidas y radios</span></figcaption></figure>
-        <figure data-r="madera"><button type="button"><img src="img/t/modelo-masillado.jpg" alt="Modelo de bomba en madera durante el masillado" loading="lazy" width="396" height="618"></button><figcaption><b>Modelo de bomba</b><span>Etapa de masillado</span></figcaption></figure>
-        <figure data-r="noyos"><button type="button"><img src="img/t/molde-noyos.jpg" alt="Molde de arena con sus noyos" loading="lazy" width="808" height="663"></button><figcaption><b>Molde y noyos</b><span>Arena, listo para colar</span></figcaption></figure>
-        <figure data-r="aluminio noyos"><button type="button"><img src="img/t/caja-noyo-aluminio.jpg" alt="Caja de noyo en aluminio" loading="lazy" width="336" height="402"></button><figcaption><b>Caja de noyo</b><span>Aluminio mecanizado</span></figcaption></figure>
-        <figure data-r="3d"><button type="button"><img src="img/t/impreso-3d.jpg" alt="Modelo impreso en 3D partido" loading="lazy" width="1023" height="670"></button><figcaption><b>Modelo impreso</b><span>Partido, con espigas</span></figcaption></figure>
+        <figure data-r="madera"><button type="button"><img src="img/r/valvula.jpg" alt="Válvula de retención: Modelo en madera laqueada, con portadas" loading="lazy" width="900" height="675"></button><figcaption><b>Válvula de retención</b><span>Modelo en madera laqueada, con portadas</span></figcaption></figure>
+        <figure data-r="noyos madera"><button type="button"><img src="img/r/caja-noyo-valvula.jpg" alt="Caja de noyo de válvula: Madera, con espigas de centrado" loading="lazy" width="900" height="675"></button><figcaption><b>Caja de noyo de válvula</b><span>Madera, con espigas de centrado</span></figcaption></figure>
+        <figure data-r="madera"><button type="button"><img src="img/r/carcasa-bomba.jpg" alt="Carcasa de bomba: Modelo en madera, con portadas" loading="lazy" width="900" height="675"></button><figcaption><b>Carcasa de bomba</b><span>Modelo en madera, con portadas</span></figcaption></figure>
+        <figure data-r="aluminio"><button type="button"><img src="img/r/polea.jpg" alt="Polea de rayos: Pieza fundida en aluminio" loading="lazy" width="900" height="675"></button><figcaption><b>Polea de rayos</b><span>Pieza fundida en aluminio</span></figcaption></figure>
+        <figure data-r="noyos aluminio"><button type="button"><img src="img/r/placa-modelo.jpg" alt="Placa modelo: 10 figuras por placa, en aluminio" loading="lazy" width="900" height="675"></button><figcaption><b>Placa modelo</b><span>10 figuras por placa, en aluminio</span></figcaption></figure>
+        <figure data-r="madera"><button type="button"><img src="img/r/sinfin.jpg" alt="Sin fin: Modelo torneado en madera" loading="lazy" width="900" height="675"></button><figcaption><b>Sin fin</b><span>Modelo torneado en madera</span></figcaption></figure>
+        <figure data-r="aluminio"><button type="button"><img src="img/r/modelo-aluminio.jpg" alt="Modelo en aluminio: Para alta producción" loading="lazy" width="900" height="675"></button><figcaption><b>Modelo en aluminio</b><span>Para alta producción</span></figcaption></figure>
+        <figure data-r="3d"><button type="button"><img src="img/r/impresos-3d.jpg" alt="Modelos impresos: Impresión 3D, listos para moldear" loading="lazy" width="900" height="675"></button><figcaption><b>Modelos impresos</b><span>Impresión 3D, listos para moldear</span></figcaption></figure>
+        <figure data-r="aluminio"><button type="button"><img src="img/r/cuerpo-bridado.jpg" alt="Cuerpo bridado: Modelo en aluminio" loading="lazy" width="900" height="675"></button><figcaption><b>Cuerpo bridado</b><span>Modelo en aluminio</span></figcaption></figure>
+        <figure data-r="3d"><button type="button"><img src="img/r/pieza-3d.jpg" alt="Pieza compleja: Diseño 3D a partir de la muestra" loading="lazy" width="900" height="675"></button><figcaption><b>Pieza compleja</b><span>Diseño 3D a partir de la muestra</span></figcaption></figure>
+        <figure data-r="noyos aluminio"><button type="button"><img src="img/r/caja-noyo-aluminio.jpg" alt="Caja de noyo: Aluminio mecanizado, en dos mitades" loading="lazy" width="900" height="675"></button><figcaption><b>Caja de noyo</b><span>Aluminio mecanizado, en dos mitades</span></figcaption></figure>
+        <figure data-r="madera"><button type="button"><img src="img/r/valvula-fundida.jpg" alt="Cuerpo de válvula: La pieza ya fundida" loading="lazy" width="900" height="675"></button><figcaption><b>Cuerpo de válvula</b><span>La pieza ya fundida</span></figcaption></figure>
       </div>
-      <p class="note">Por confidencialidad ocultamos marcas y códigos de nuestros clientes.</p>
+      <p class="note">Imágenes de referencia de los trabajos que hacemos. Por confidencialidad no mostramos piezas ni planos de clientes.</p>
     </div>
   </section>
 
@@ -284,35 +274,21 @@ footer img{height:34px;width:auto}
     <div class="c">
       <p class="eyebrow">Proceso</p>
       <h2>Así se hace una pieza, paso a paso</h2>
+      <p class="lead">El ejemplo es una brida. Usted elige hasta dónde llegamos: solo el dibujo, el modelo listo para moldear, o la pieza fundida.</p>
       <p class="swipe">Deslice para ver los 8 pasos →</p>
       <ol class="steps">
-        <li><img src="img/plano.svg" alt="Plano de una brida" loading="lazy"><div class="t"><h3>La pieza o la idea</h3><p>Plano, croquis, fotos o la pieza, aunque esté rota.</p></div></li>
-        <li><img src="img/b_cad.jpg" alt="Brida dibujada en 3D" loading="lazy"><div class="t"><h3>Dibujo en 3D</h3><p>Usted aprueba la pieza y le pasamos presupuesto.</p></div></li>
-        <li><img src="img/b_partido.jpg" alt="Modelo partido en dos mitades" loading="lazy"><span class="badge">+3,7 %</span><div class="t"><h3>Diseño del modelo</h3><p>Partición, portadas, salidas y contracción del metal.</p></div></li>
-        <li><img src="img/b_noyo.jpg" alt="Caja de noyo y noyo de arena" loading="lazy"><div class="t"><h3>Caja de noyo</h3><p>Madera de calidad o fundición mecanizada, para una buena terminación.</p></div></li>
-        <li><img src="img/b_madera.jpg" alt="Modelo en madera" loading="lazy"><div class="t"><h3>Fabricación</h3><p>En madera, aluminio, telgopor o impreso, según la producción.</p></div></li>
-        <li><img src="img/b_terminado.jpg" alt="Modelo laqueado con portadas negras" loading="lazy"><div class="t"><h3>Terminación</h3><p>Masillado, laca y control de medidas a centésimas.</p></div></li>
-        <li><img src="img/molde.svg" alt="Molde de arena con noyo y metal" loading="lazy"><div class="t"><h3>Moldeo y colada</h3><p>Molde de tierra o arena. Lo coordinamos con fundiciones de la zona.</p></div></li>
-        <li><img src="img/b_metal.jpg" alt="Pieza fundida" loading="lazy"><div class="t"><h3>Pieza fundida</h3><p>Si necesita mecanizado, le recomendamos talleres de confianza.</p></div></li>
+        <li><img src="img/plano.svg" alt="Plano de una brida con vista frontal y superior" loading="lazy"><div class="t"><h3>Nos trae la pieza o la idea</h3><p>Plano, croquis, fotos o la pieza original, aunque esté rota. Si no hay plano ni modelo, lo dibujamos con usted.</p></div></li>
+        <li><img src="img/b_cad.jpg" alt="Brida dibujada en 3D" loading="lazy"><div class="t"><h3>La dibujamos en 3D</h3><p>En SolidWorks o Inventor. Usted ve y aprueba la pieza, y le pasamos presupuesto y plazo.</p></div></li>
+        <li><img src="img/b_partido.jpg" alt="Modelo partido en dos mitades con espigas de centrado" loading="lazy"><span class="badge">+3,7 %</span><div class="t"><h3>Diseñamos el modelo</h3><p>Lo partimos por el plano de partición, con portadas, ángulos de salida, espigas y la contracción del metal.</p></div></li>
+        <li><img src="img/b_noyo.jpg" alt="Caja de noyo abierta y noyo de arena" loading="lazy"><div class="t"><h3>Caja de noyo</h3><p>Forma el noyo de los huecos interiores. En madera de calidad o fundición mecanizada, para una buena terminación final.</p></div></li>
+        <li><img src="img/b_madera.jpg" alt="Modelo de la brida en madera" loading="lazy"><div class="t"><h3>Fabricamos el modelo</h3><p>En madera, aluminio, telgopor o impreso en 3D, según la pieza, la cantidad y el plazo.</p></div></li>
+        <li><img src="img/b_terminado.jpg" alt="Modelo terminado, laqueado y con las portadas pintadas de negro" loading="lazy"><div class="t"><h3>Terminación y control</h3><p>Lijado, masillado, laca y portadas en negro. Controlamos las medidas a centésimas.</p></div></li>
+        <li><img src="img/molde.svg" alt="Molde de arena con el noyo y el metal fundido" loading="lazy"><div class="t"><h3>Moldeo y colada</h3><p>Con el modelo se arma el molde de tierra o arena y se vierte el metal. Lo coordinamos con fundiciones de la zona.</p></div></li>
+        <li><img src="img/b_metal.jpg" alt="Brida fundida" loading="lazy"><div class="t"><h3>Pieza fundida</h3><p>La pieza sale lista para su terminación. Si necesita mecanizado, le recomendamos talleres de confianza.</p></div></li>
       </ol>
     </div>
   </section>
 
-  <section class="video alt" id="oficio">
-    <div class="c">
-      <div>
-        <p class="eyebrow">El oficio</p>
-        <h2>¿Qué hace un modelista para fundición?</h2>
-        <p class="lead">El modelista fabrica la pieza "en positivo" con la que se arma el molde. Define por dónde se parte, cuánto se achica el metal al enfriarse, las salidas para desmoldar y los noyos que forman los huecos. De eso depende que la pieza salga bien y a medida.</p>
-      </div>
-      <div>
-        <button class="yt" type="button" id="yt" data-id="rT7c7J6PH_M" aria-label="Reproducir video: Diseño del modelo para moldes en arena para fundición">
-          <img src="https://i.ytimg.com/vi/rT7c7J6PH_M/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"><span></span>
-        </button>
-        <p class="credit">Video: "Diseño del modelo para moldes en arena para fundición", canal dcahue-ingeniería (YouTube).</p>
-      </div>
-    </div>
-  </section>
 
   <section id="contacto" class="contact">
     <div class="c">
@@ -365,14 +341,6 @@ footer img{height:34px;width:auto}
   })});
   document.getElementById('lbx').addEventListener('click',function(){lb.close()});
   lb.addEventListener('click',function(e){if(e.target===lb) lb.close()});
-  /* Video: se carga solo al tocarlo */
-  var yt=document.getElementById('yt');
-  yt.addEventListener('click',function(){
-    var f=document.createElement('iframe');
-    f.src='https://www.youtube-nocookie.com/embed/'+yt.dataset.id+'?autoplay=1&rel=0';
-    f.allow='autoplay; encrypted-media; picture-in-picture'; f.allowFullscreen=true; f.title='Video sobre modelería para fundición';
-    yt.replaceChildren(f); yt.style.cursor='default';
-  },{once:true});
   if(/enviado=1/.test(location.search)) document.getElementById('gracias').classList.add('show');
 })();
 </script>
