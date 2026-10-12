@@ -4,241 +4,368 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>RyM Servicios · Modelos para fundición en San Francisco, Córdoba</title>
-<meta name="description" content="Modelos para fundición dibujados en 3D e impresos, desde la pieza, un croquis o el plano. Más de 40 años en San Francisco, Córdoba.">
+<meta name="description" content="Modelos para fundición en madera y en 3D, cajas de noyo, reproducción de piezas y diseño CAD. Más de 40 años en San Francisco, Córdoba.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="RyM Servicios · Modelos para fundición">
-<meta property="og:description" content="Traenos la pieza, un croquis o el plano. Te devolvemos el modelo listo para moldear.">
-<meta property="og:image" content="https://benjapiumetti10-lang.github.io/RyM-Servicios/trabajo.jpg">
+<meta property="og:description" content="Modelos para fundición en madera y en 3D, desde cero o a partir de una pieza existente.">
+<meta property="og:image" content="https://benjapiumetti10-lang.github.io/RyM-Servicios/cubo.jpg">
 <meta property="og:url" content="https://benjapiumetti10-lang.github.io/RyM-Servicios/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Crect x='3' y='3' width='114' height='74' fill='%23fff' stroke='%230F2A44' stroke-width='6'/%3E%3Cline x1='3' y1='40' x2='117' y2='40' stroke='%23B07A24' stroke-width='4' stroke-dasharray='7 5'/%3E%3Ctext x='60' y='54' text-anchor='middle' font-family='Arial' font-weight='800' font-size='40' fill='%230F2A44'%3ERyM%3C/text%3E%3C/svg%3E">
-<style>body{margin:0} img{max-width:100%} [hidden]{display:none!important}
-.viewer{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:28px;align-items:center}
-model-viewer{width:100%;height:420px;background:radial-gradient(circle at 50% 40%,var(--surface),var(--steel));border:1px solid var(--line);--poster-color:transparent}
-.toggle{display:flex;border:2px solid var(--ink);width:fit-content;max-width:100%;flex-wrap:wrap}
-.toggle button{font:600 14px/1 var(--f-body);background:transparent;color:var(--ink);border:0;padding:12px 16px;cursor:pointer}
-.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
-.dims{margin-top:18px;display:grid;grid-template-columns:auto auto;gap:6px 18px;font:400 15px/1.3 var(--f-mono);width:fit-content}
-.dims dt{color:var(--ink-2)} .dims dd{margin:0;font-weight:600;font-variant-numeric:tabular-nums}
-.viewer p.note{margin-top:14px;color:var(--ink-2);font-size:14.5px;max-width:44ch}
-.ar{margin-top:14px;font:600 13px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:var(--ochre);color:#fff;border:0;padding:11px 14px;cursor:pointer}
-@media (max-width:880px){.viewer{grid-template-columns:minmax(0,1fr)} model-viewer{height:340px}}
-</style>
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312304F'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-weight='700' font-size='26' fill='%23fff'%3ERyM%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
-/* Layout: una caja de moldeo partida. Arriba la mitad "superior" (marca y promesa),
-   una línea de partición, abajo la mitad "inferior" (proceso, trabajo, contacto). */
+/* Layout: bandas a todo el ancho (barra, portada, servicios, trabajos, proceso, contacto)
+   con un contenedor amplio de 1280 px. Estética industrial sobria: azul acero, gris y un acento bronce. */
 :root{
-  --steel:#EEF0EF; --surface:#FFFFFF; --ink:#0F2A44; --ink-2:#4F6275;
-  --line:#C9D0D4; --ochre:#B07A24; --ochre-ink:#8A5D14; --ochre-soft:rgba(176,122,36,.12);
-  --f-display:"Archivo","Arial Narrow",Arial,sans-serif;
-  --f-body:"Archivo",Helvetica,Arial,sans-serif;
-  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --steel:#0D1822; --surface:#13212E; --ink:#E8EEF3; --ink-2:#9FB0BF;
-    --line:#2E4152; --ochre:#E0A64A; --ochre-ink:#E9B865; --ochre-soft:rgba(224,166,74,.14); color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --steel:#0D1822; --surface:#13212E; --ink:#E8EEF3; --ink-2:#9FB0BF;
-  --line:#2E4152; --ochre:#E0A64A; --ochre-ink:#E9B865; --ochre-soft:rgba(224,166,74,.14); color-scheme:dark;
+  --navy:#12304F; --navy-2:#0B2139; --steel:#F2F4F6; --surface:#FFFFFF; --ink:#16212C; --ink-2:#55626F;
+  --line:#D9DEE3; --bronze:#A8762C; --bronze-soft:#F5EDE0;
+  --f-head:"Archivo",Arial,sans-serif; --f-body:"Source Sans 3","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
-body{background:var(--steel);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;padding-inline:16px;padding-block:0 40px}
-h1,h2,h3,p,ol,ul{margin:0}
-ol,ul{padding:0;list-style:none}
-:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
-.wrap{max-width:1040px;margin-inline:auto}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--surface);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
+h1,h2,h3,p,ul,ol{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--bronze);outline-offset:2px}
+.c{max-width:1280px;margin-inline:auto;padding-inline:clamp(20px,4vw,48px)}
+.eyebrow{font:600 12.5px/1.2 var(--f-head);letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
+h2{font:700 clamp(26px,3vw,36px)/1.15 var(--f-head);letter-spacing:-.01em;margin-top:8px;text-wrap:balance}
+.lead{color:var(--ink-2);max-width:62ch;margin-top:12px}
+section{padding-block:clamp(56px,7vw,88px)}
 
-.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:22px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:14px;color:var(--ink);text-decoration:none}
-.brand svg{width:64px;height:auto;flex:none}
-.brand b{font:780 21px/1 var(--f-display);font-stretch:112%;letter-spacing:-.01em;display:block}
-.brand span{font:500 11px/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
-.where{font:400 13px/1.3 var(--f-mono);color:var(--ink-2)}
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 15px/1 var(--f-head);text-decoration:none;padding:15px 22px;border:2px solid transparent;cursor:pointer;transition:background .15s,color .15s}
+.btn-primary{background:var(--bronze);color:#fff}
+.btn-primary:hover{background:#8F6322}
+.btn-ghost{border-color:currentColor;color:inherit;background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.btn-wa{background:#1F7A4D;color:#fff}
+.btn-wa:hover{background:#17623D}
+.btn svg{width:18px;height:18px;flex:none}
 
-.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:36px;align-items:center;padding-block:28px 40px}
-.hero h1{font:800 clamp(34px,5.4vw,58px)/1.02 var(--f-display);font-stretch:118%;letter-spacing:-.02em;text-wrap:balance}
-.hero h1 em{font-style:normal;color:var(--ochre-ink)}
-.hero p{margin-top:18px;font-size:18px;max-width:46ch;color:var(--ink-2)}
-.cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
-.phone{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.phone strong{font:600 26px/1 var(--f-mono);letter-spacing:-.01em;color:var(--ink)}
-.copy{font:600 12px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--surface);background:var(--ink);border:0;padding:9px 12px;cursor:pointer}
-.copy:hover{background:var(--ochre-ink)}
-.cta small{font:400 13px/1.4 var(--f-mono);color:var(--ink-2)}
-.hero figure{margin:0;background:var(--surface);border:1px solid var(--line);padding:10px}
-.hero figure img{display:block;width:100%;height:auto}
-.hero figcaption{font:400 12px/1.45 var(--f-mono);color:var(--ink-2);padding:10px 4px 2px}
+/* Barra superior */
+.bar{background:var(--navy);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:10}
+.bar .c{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px;flex-wrap:wrap;padding-block:10px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo .mark{width:44px;height:44px;background:#fff;color:var(--navy);display:grid;place-items:center;font:700 16px/1 var(--f-head);letter-spacing:-.02em;border-bottom:4px solid var(--bronze)}
+.logo b{font:700 19px/1.1 var(--f-head);display:block}
+.logo span{font:400 13px/1.2 var(--f-body);opacity:.75}
+nav{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+nav a{text-decoration:none;font:500 15px/1 var(--f-head);opacity:.88}
+nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+nav .btn{padding:11px 16px;opacity:1}
 
-.parting{position:relative;height:28px;margin-block:8px}
-.parting::before{content:"";position:absolute;left:0;right:0;top:13px;border-top:2px dashed var(--ochre)}
-.parting span{position:absolute;left:0;top:4px;background:var(--steel);padding-right:12px;font:500 11px/20px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ochre-ink)}
+/* Portada */
+.hero{background:linear-gradient(180deg,var(--steel),#fff)}
+.hero .c{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,4vw,64px);align-items:center;padding-block:clamp(48px,6vw,80px)}
+.hero h1{font:700 clamp(34px,4.6vw,56px)/1.06 var(--f-head);letter-spacing:-.02em;margin-top:10px;text-wrap:balance}
+.hero p.lead{font-size:19px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .ctas .btn-ghost{color:var(--navy)}
+.hero .ctas .btn-ghost:hover{background:var(--steel)}
+.facts{display:flex;gap:clamp(20px,3vw,40px);flex-wrap:wrap;margin-top:34px;padding-top:22px;border-top:1px solid var(--line)}
+.facts div{display:flex;flex-direction:column}
+.facts b{font:700 28px/1 var(--f-head);color:var(--navy);font-variant-numeric:tabular-nums}
+.facts span{font-size:14.5px;color:var(--ink-2);margin-top:6px}
+.hero figure{margin:0;background:#fff;border:1px solid var(--line);box-shadow:0 18px 40px -24px rgba(18,48,79,.35)}
+.hero figcaption{font-size:14px;color:var(--ink-2);padding:12px 16px;border-top:1px solid var(--line)}
 
-section{padding-block:30px}
-h2{font:780 clamp(24px,3.2vw,32px)/1.1 var(--f-display);font-stretch:112%;letter-spacing:-.01em;text-wrap:balance;margin-bottom:22px}
-.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
-.steps li{padding:16px 16px 4px 0;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:8px;min-width:0}
-.steps li + li{padding-left:16px}
-.steps li:last-child{border-right:0}
-.steps .n{font:600 13px/1 var(--f-mono);color:var(--ochre-ink)}
-.steps h3{font:700 17px/1.2 var(--f-display);font-stretch:105%}
-.steps p{font-size:14.5px;color:var(--ink-2)}
-.steps .who{font:500 10.5px/1.3 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line);padding:3px 6px;width:fit-content}
-.steps .who.rym{border-color:var(--ochre);color:var(--ochre-ink);background:var(--ochre-soft)}
+/* Servicios */
+.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:36px;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.services li{padding:28px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.services svg{width:34px;height:34px;color:var(--navy)}
+.services h3{font:700 19px/1.25 var(--f-head)}
+.services p{color:var(--ink-2);font-size:16px}
 
-.why{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 32px}
-.why div{display:flex;flex-direction:column;gap:6px;padding-left:16px;border-left:2px solid var(--line)}
-.why h3{font:700 18px/1.25 var(--f-display);font-stretch:105%}
-.why p{color:var(--ink-2);font-size:15px;max-width:48ch}
+/* Trabajos */
+.work{background:var(--steel)}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:36px}
+.gallery figure{margin:0;background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
+.gallery img{aspect-ratio:4/3;object-fit:contain;background:#fff;width:100%}
+.gallery figcaption{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);flex:1}
+.gallery figcaption b{font:600 16px/1.3 var(--f-head)}
+.gallery figcaption span{font-size:14.5px;color:var(--ink-2)}
+.tag{font:600 11.5px/1 var(--f-head);letter-spacing:.08em;text-transform:uppercase;color:var(--bronze)}
+.note{font-size:13.5px;color:var(--ink-2);margin-top:16px}
 
-.need{background:var(--surface);border:1px solid var(--line);padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
-.need ul{display:flex;flex-direction:column;gap:8px}
-.need li{padding-left:18px;position:relative}
-.need li::before{content:"";position:absolute;left:0;top:.7em;width:9px;border-top:2px solid var(--ochre)}
-.contact{display:flex;flex-direction:column;gap:10px}
-.contact .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:400 15px/1.3 var(--f-mono)}
-.contact .lbl{font:500 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);width:74px}
-footer{padding-block:24px 0;border-top:1px solid var(--line);margin-top:20px;font:400 12px/1.5 var(--f-mono);color:var(--ink-2)}
+/* Visor 3D */
+.viewer{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;margin-top:32px}
+model-viewer{width:100%;height:440px;background:radial-gradient(circle at 50% 42%,#fff,var(--steel));border:1px solid var(--line)}
+.toggle{display:inline-flex;border:2px solid var(--navy)}
+.toggle button{font:600 15px/1 var(--f-head);background:#fff;color:var(--navy);border:0;padding:13px 18px;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.dims{margin-top:22px;display:grid;grid-template-columns:auto auto;gap:8px 24px;width:fit-content}
+.dims dt{color:var(--ink-2)} .dims dd{margin:0;font:600 17px/1.4 var(--f-head);font-variant-numeric:tabular-nums}
+.vnote{margin-top:16px;color:var(--ink-2);max-width:46ch}
+.ar{margin:12px;font:600 13px/1 var(--f-head);background:var(--navy);color:#fff;border:0;padding:11px 14px;cursor:pointer}
 
-@media (max-width:880px){
-  .hero{grid-template-columns:minmax(0,1fr)}
-  .steps{grid-template-columns:minmax(0,1fr)}
-  .steps li,.steps li + li{padding:14px 0;border-right:0;border-bottom:1px solid var(--line)}
-  .why,.need{grid-template-columns:minmax(0,1fr)}
+/* Proceso */
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;margin-top:36px;counter-reset:s}
+.steps li{border-top:3px solid var(--navy);padding-top:16px;display:flex;flex-direction:column;gap:8px}
+.steps li::before{counter-increment:s;content:"Paso " counter(s);font:600 12.5px/1 var(--f-head);letter-spacing:.1em;text-transform:uppercase;color:var(--bronze)}
+.steps h3{font:700 18px/1.25 var(--f-head)}
+.steps p{color:var(--ink-2);font-size:16px}
+
+/* Contacto */
+.contact{background:var(--navy);color:#fff}
+.contact .c{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.contact h2{color:#fff}
+.contact .lead{color:rgba(255,255,255,.78)}
+.direct{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.direct .row{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.direct .lbl{width:92px;font:600 12px/1 var(--f-head);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.direct .val{font:600 18px/1.3 var(--f-head)}
+.copy{font:600 12px/1 var(--f-head);background:transparent;color:#fff;border:1px solid rgba(255,255,255,.5);padding:7px 10px;cursor:pointer}
+.copy:hover{background:rgba(255,255,255,.1)}
+.direct .btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+.direct .btn-ghost{color:#fff}
+form{background:#fff;color:var(--ink);padding:clamp(22px,3vw,34px);display:grid;grid-template-columns:1fr 1fr;gap:16px}
+form h3{grid-column:1/-1;font:700 21px/1.2 var(--f-head)}
+form .full{grid-column:1/-1}
+label{display:flex;flex-direction:column;gap:6px;font:600 14px/1.2 var(--f-head);color:var(--ink)}
+input,textarea,select{font:400 16px/1.4 var(--f-body);padding:11px 12px;border:1px solid #BFC7CF;background:#fff;color:var(--ink);width:100%}
+textarea{min-height:110px;resize:vertical}
+.pref{display:flex;gap:10px;flex-wrap:wrap}
+.pref label{flex-direction:row;align-items:center;gap:8px;font-weight:500;border:1px solid #BFC7CF;padding:10px 14px;cursor:pointer}
+.pref input{width:auto}
+form .btn{justify-content:center;grid-column:1/-1}
+form small{grid-column:1/-1;color:var(--ink-2);font-size:13.5px}
+.thanks{display:none;grid-column:1/-1;background:var(--bronze-soft);border-left:4px solid var(--bronze);padding:14px 16px}
+:target.thanks,.thanks.show{display:block}
+
+footer{background:var(--navy-2);color:rgba(255,255,255,.7);font-size:14px}
+footer .c{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:22px}
+
+@media (max-width:1080px){
+  .gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .steps{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
+@media (max-width:860px){
+  .hero .c,.viewer,.contact .c{grid-template-columns:minmax(0,1fr)}
+  .services{grid-template-columns:minmax(0,1fr)}
+  .steps{grid-template-columns:minmax(0,1fr)}
+  nav a:not(.btn){display:none}
+  model-viewer{height:340px}
+}
+@media (max-width:560px){
+  .gallery{grid-template-columns:minmax(0,1fr)}
+  form{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
-
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="#inicio" aria-label="RyM Servicios">
-      <svg viewBox="0 0 120 80" role="img" aria-label="Logo de RyM Servicios">
-        <rect x="3" y="3" width="114" height="74" fill="none" stroke="currentColor" stroke-width="5"/>
-        <line x1="3" y1="40" x2="117" y2="40" stroke="#B07A24" stroke-width="3" stroke-dasharray="7 5"/>
-        <text x="60" y="54" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-weight="800" font-size="40" fill="currentColor" letter-spacing="-1">RyM</text>
-      </svg>
-      <div><b>RyM Servicios</b><span>Modelos para fundición</span></div>
-    </a>
-    <p class="where">San Francisco, Córdoba · desde hace más de 40 años</p>
-  </header>
 
-  <div class="hero" id="inicio">
-    <div>
-      <h1>Traenos la pieza, un croquis o el plano. Te devolvemos <em>el modelo listo para moldear.</em></h1>
-      <p>Hacemos modelos para fundición de toda la vida. Hoy además los dibujamos en 3D y los imprimimos, con la contracción del metal ya calculada, las portadas y las cajas de noyo.</p>
-      <div class="cta">
-        <div class="phone"><strong id="tel">3564 4746372</strong><button class="copy" type="button" id="copy-tel">Copiar número</button></div>
-        <small>WhatsApp o llamada · Benjamín Piumetti · benjapiumetti10@gmail.com</small>
+<header class="bar">
+  <div class="c">
+    <a class="logo" href="#inicio" aria-label="RyM Servicios, inicio">
+      <span class="mark">RyM</span>
+      <span><b>RyM Servicios</b><span>Modelos para fundición · San Francisco, Córdoba</span></span>
+    </a>
+    <nav aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#proceso">Proceso</a>
+      <a class="btn btn-primary" href="#contacto">Solicitar reunión</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="c">
+      <div>
+        <p class="eyebrow">Modelería para fundición</p>
+        <h1>Modelos para fundición en madera y en 3D</h1>
+        <p class="lead">Desarrollamos modelos y cajas de noyo desde cero o a partir de una pieza existente. Trabajamos con plano, croquis o muestra, y entregamos el modelo listo para moldear.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contacto">Solicitar reunión o llamada</a>
+          <a class="btn btn-ghost" href="#trabajos">Ver trabajos</a>
+        </div>
+        <div class="facts">
+          <div><b>+40 años</b><span>en modelería para fundición</span></div>
+          <div><b>Madera y 3D</b><span>según la pieza y la serie</span></div>
+          <div><b>SolidWorks · Inventor</b><span>diseño y planos de fabricación</span></div>
+        </div>
       </div>
+      <figure>
+        <img src="cubo.jpg" alt="Modelo partido en cuatro piezas y cuatro cajas de noyo, dibujados en 3D y ubicados en la cama de la impresora" width="1600" height="800">
+        <figcaption>Modelo partido en cuatro piezas y sus cajas de noyo, con 3,7 % de contracción aplicada, listos para imprimir.</figcaption>
+      </figure>
     </div>
-    <figure>
-      <img src="trabajo.jpg" alt="Modelo partido en cuatro piezas y cuatro cajas de noyo, dibujados en 3D y ubicados sobre la cama de la impresora" width="1600" height="800">
-      <figcaption>Trabajo reciente: modelo partido en 4 piezas (ocre) y sus 4 cajas de noyo (azul), con 3,7 % de contracción aplicada y listos para imprimir.</figcaption>
-    </figure>
   </div>
 
+  <section id="servicios">
+    <div class="c">
+      <p class="eyebrow">Servicios</p>
+      <h2>Del plano o la muestra al modelo terminado</h2>
+      <p class="lead">Cada trabajo se resuelve con la técnica que mejor conviene: madera para modelos de larga vida y series largas, impresión 3D para desarrollos, geometrías complejas y reposiciones rápidas.</p>
+      <ul class="services">
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 24 L16 8 L28 24 Z"/><path d="M4 24h24M10 24l6-8 6 8"/></svg>
+          <h3>Modelos en madera</h3>
+          <p>Modelería tradicional, con el oficio de más de 40 años, para piezas nuevas o de producción continua.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="20" height="14"/><path d="M10 26h12M16 20v6M10 13h12"/></svg>
+          <h3>Modelos impresos en 3D</h3>
+          <p>Dibujados con la contracción del metal aplicada, partidos para la impresora y con portadas y salidas.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><circle cx="16" cy="16" r="10"/><circle cx="16" cy="16" r="4"/><path d="M16 2v6M16 24v6M2 16h6M24 16h6"/></svg>
+          <h3>Piezas desde cero</h3>
+          <p>Desarrollo de piezas nuevas a partir de una idea, un croquis o un plano, con prototipo impreso para probar antes de fundir.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 26 L26 6M8 10l4-4 4 4-4 4zM18 20l4-4 4 4-4 4z"/></svg>
+          <h3>Reproducción de piezas</h3>
+          <p>Relevamos piezas existentes, aunque estén gastadas o rotas, y las redibujamos para volver a fabricarlas.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="9" width="22" height="16"/><path d="M5 17h22M11 9v16"/></svg>
+          <h3>Cajas de noyo</h3>
+          <p>En madera o impresas, con sobremedida en la partición para dejarlas planas.</p>
+        </li>
+        <li>
+          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 4h16v8l-4 4v12h-8V16l-4-4z"/></svg>
+          <h3>Fundición y mecanizado</h3>
+          <p>Coordinamos la colada y el mecanizado con talleres de confianza. Usted trata con un solo responsable.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-  <section id="pieza3d">
-    <h2>Girá la pieza con el dedo o el mouse</h2>
-    <div class="viewer">
-      <model-viewer id="mv" src="brida.glb" loading="eager" reveal="auto" alt="Brida fundida de demostración en 3D" camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="18deg" shadow-intensity="1" exposure="1.05" camera-orbit="35deg 65deg auto" ar ar-modes="webxr scene-viewer quick-look" touch-action="pan-y">
-        <button slot="ar-button" class="ar">Verla en tu mesa con el celular</button>
-      </model-viewer>
-      <div>
-        <div class="toggle" role="group" aria-label="Qué mostrar">
-          <button type="button" id="b-pieza" aria-pressed="true">Pieza fundida</button>
-          <button type="button" id="b-modelo" aria-pressed="false">Modelo para moldear</button>
+  <section id="trabajos" class="work">
+    <div class="c">
+      <p class="eyebrow">Trabajos</p>
+      <h2>Algunos trabajos recientes</h2>
+      <div class="gallery">
+        <figure><img src="cubo.jpg" alt="Modelo y cajas de noyo para impresión 3D" loading="lazy"><figcaption><span class="tag">Modelo 3D</span><b>Modelo partido y cajas de noyo</b><span>Ocho piezas para imprimir, con 3,7 % de contracción y sin soporte en las caras exteriores.</span></figcaption></figure>
+        <figure><img src="croquis.jpg" alt="Modelo dibujado a partir de un croquis a mano" loading="lazy"><figcaption><span class="tag">Desde croquis</span><b>Modelo a partir de un croquis a mano</b><span>Relevamiento de medidas sobre croquis y armado del modelo partido para moldear.</span></figcaption></figure>
+        <figure><img src="tapa.jpg" alt="Tapa bridada dibujada en 3D" loading="lazy"><figcaption><span class="tag">Desde plano</span><b>Tapa bridada</b><span>Modelo 3D de la pieza fundida a partir del plano de fabricación.</span></figcaption></figure>
+        <figure><img src="caja.jpg" alt="Caja de noyo impresa" loading="lazy"><figcaption><span class="tag">Caja de noyo</span><b>Caja de noyo impresa</b><span>Con 1 mm de sobremedida en la cara de partición para mecanizarla plana.</span></figcaption></figure>
+      </div>
+      <p class="note">Por confidencialidad, los trabajos se muestran sin datos de clientes ni códigos de pieza.</p>
+    </div>
+  </section>
+
+  <section id="contraccion">
+    <div class="c">
+      <p class="eyebrow">Contracción del metal</p>
+      <h2>La pieza y su modelo, lado a lado</h2>
+      <div class="viewer">
+        <model-viewer id="mv" src="brida.glb" loading="eager" reveal="auto" alt="Brida de demostración en 3D" camera-controls auto-rotate auto-rotate-delay="0" rotation-per-second="16deg" shadow-intensity="1" exposure="1.05" camera-orbit="35deg 65deg auto" ar ar-modes="webxr scene-viewer quick-look" touch-action="pan-y">
+          <button slot="ar-button" class="ar">Ver en realidad aumentada</button>
+        </model-viewer>
+        <div>
+          <div class="toggle" role="group" aria-label="Qué mostrar">
+            <button type="button" id="b-pieza" aria-pressed="true">Pieza fundida</button>
+            <button type="button" id="b-modelo" aria-pressed="false">Modelo para moldear</button>
+          </div>
+          <dl class="dims">
+            <dt>Diámetro de brida</dt><dd id="d1">150,0 mm</dd>
+            <dt>Altura total</dt><dd id="d2">86,0 mm</dd>
+            <dt>Contracción aplicada</dt><dd id="d3">0 %</dd>
+          </dl>
+          <p class="vnote" id="note">Pieza en hierro, terminada. El modelo se dibuja más grande para que, al enfriarse el metal, la pieza llegue a su medida.</p>
+          <p class="note">Gire la pieza con el mouse. Pieza de demostración.</p>
         </div>
-        <dl class="dims">
-          <dt>Diámetro de brida</dt><dd id="d1">150,0 mm</dd>
-          <dt>Alto total</dt><dd id="d2">86,0 mm</dd>
-          <dt>Contracción</dt><dd id="d3">0 %</dd>
-        </dl>
-        <p class="note" id="note">Así queda la pieza en hierro, ya fundida. Tocá "Modelo para moldear" para ver cómo la dibujamos más grande, para que al enfriarse el metal llegue justo a la medida.</p>
       </div>
     </div>
-    <p class="note" style="margin-top:14px;color:var(--ink-2);font:400 12px/1.4 var(--f-mono)">Pieza de demostración. Los trabajos de clientes no se publican.</p>
   </section>
 
-  <div class="parting" aria-hidden="true"><span>Línea de partición</span></div>
-
-  <section>
-    <h2>Cómo trabajamos</h2>
-    <ol class="steps">
-      <li><span class="n">1</span><h3>Nos traés lo que tengas</h3><p>La pieza vieja, aunque esté gastada o rota, una foto con medidas, un croquis o un plano.</p><span class="who rym">RyM</span></li>
-      <li><span class="n">2</span><h3>La dibujamos en 3D</h3><p>Medimos, corregimos lo gastado y armamos el modelo con contracción, portadas y salidas.</p><span class="who rym">RyM</span></li>
-      <li><span class="n">3</span><h3>Imprimimos el modelo</h3><p>Modelo y cajas de noyo, partidos para que entren en la impresora y se armen por las caras planas.</p><span class="who">Taller de confianza</span></li>
-      <li><span class="n">4</span><h3>Terminación</h3><p>Lijado y ajuste del modelo para que quede listo para moldear.</p><span class="who rym">RyM</span></li>
-      <li><span class="n">5</span><h3>Fundición y mecanizado</h3><p>Coordinamos la colada y mecanizamos la pieza si hace falta. Vos tratás con una sola persona.</p><span class="who">Coordinado por RyM</span></li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Por qué conviene el modelo en 3D</h2>
-    <div class="why">
-      <div><h3>La contracción ya viene calculada</h3><p>El modelo se dibuja con el porcentaje del metal que se va a colar. No hay que corregir a ojo.</p></div>
-      <div><h3>El archivo queda guardado</h3><p>Si mañana necesitás otro modelo igual o se gasta el que tenés, se vuelve a imprimir sin arrancar de cero.</p></div>
-      <div><h3>Cambiar una medida es rápido</h3><p>Se corrige en el dibujo y se reimprime solo la parte que cambia.</p></div>
-      <div><h3>No hace falta plano</h3><p>Con la pieza original o una buena foto con algunas medidas alcanza para empezar.</p></div>
+  <section id="proceso" class="work">
+    <div class="c">
+      <p class="eyebrow">Proceso</p>
+      <h2>Cómo trabajamos</h2>
+      <ol class="steps">
+        <li><h3>Consulta</h3><p>Nos envía el plano, un croquis, fotos o la pieza, y conversamos el material y la cantidad.</p></li>
+        <li><h3>Relevamiento y diseño</h3><p>Medimos y dibujamos la pieza en SolidWorks o Inventor, con contracción, portadas y salidas.</p></li>
+        <li><h3>Presupuesto</h3><p>Le pasamos el presupuesto con plazos y la técnica propuesta: madera o 3D.</p></li>
+        <li><h3>Modelo</h3><p>Fabricamos el modelo y las cajas de noyo y les damos la terminación final.</p></li>
+        <li><h3>Entrega</h3><p>Entregamos el modelo listo para moldear o coordinamos la fundición y el mecanizado.</p></li>
+      </ol>
     </div>
   </section>
 
-  <section>
-    <h2>¿Tenés una pieza en mente?</h2>
-    <div class="need">
+  <section id="contacto" class="contact">
+    <div class="c">
       <div>
-        <p style="margin-bottom:12px">Para pasarte un presupuesto necesitamos:</p>
-        <ul>
-          <li>Una foto de la pieza, o el plano si lo tenés.</li>
-          <li>Dos o tres medidas generales.</li>
-          <li>El material en que se funde y cuántas piezas necesitás.</li>
-        </ul>
+        <p class="eyebrow">Contacto</p>
+        <h2>Coordinemos una reunión o una llamada</h2>
+        <p class="lead">Podemos visitarlos, recibirlos en el taller o hablar por teléfono o videollamada. Complete el formulario o escríbanos directamente.</p>
+        <div class="direct">
+          <div class="row"><span class="lbl">Correo</span><span class="val" id="mail">benjapiumetti10@gmail.com</span><button class="copy" type="button" id="copy-mail">Copiar</button></div>
+          <div class="row"><span class="lbl">Teléfono</span><span class="val" id="tel">+54 3564 4746372</span><button class="copy" type="button" id="copy-tel">Copiar</button></div>
+          <div class="row"><span class="lbl">Ubicación</span><span class="val">San Francisco, Córdoba</span></div>
+          <div class="btns">
+            <a class="btn btn-wa" id="wa" href="https://wa.me/54935644746372?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20sobre%20un%20modelo%20para%20fundici%C3%B3n." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+              Consultar por WhatsApp
+            </a>
+            <a class="btn btn-ghost" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=benjapiumetti10@gmail.com&amp;su=Consulta%20-%20RyM%20Servicios" target="_blank" rel="noopener">Escribir desde Gmail</a>
+          </div>
+        </div>
       </div>
-      <div class="contact">
-        <div class="row"><span class="lbl">WhatsApp</span><span>+54 3564 4746372</span></div>
-        <div class="row"><span class="lbl">Correo</span><span id="mail">benjapiumetti10@gmail.com</span><button class="copy" type="button" id="copy-mail">Copiar</button></div>
-        <div class="row"><span class="lbl">Taller</span><span>San Francisco, Córdoba</span></div>
-        <div class="row"><span class="lbl">Contacto</span><span>Benjamín Piumetti</span></div>
-      </div>
+
+      <form id="form" action="https://formsubmit.co/benjapiumetti10@gmail.com" method="POST">
+        <h3>Solicitar reunión o llamada</h3>
+        <input type="hidden" name="_subject" value="Nueva consulta desde la web de RyM Servicios">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://benjapiumetti10-lang.github.io/RyM-Servicios/#gracias">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <label>Nombre y apellido<input id="f-nombre" name="Nombre" required autocomplete="name"></label>
+        <label>Empresa<input id="f-empresa" name="Empresa" autocomplete="organization"></label>
+        <label>Correo<input id="f-correo" name="email" type="email" required autocomplete="email"></label>
+        <label>Teléfono<input id="f-tel" name="Teléfono" type="tel" autocomplete="tel"></label>
+        <div class="full">
+          <span style="font:600 14px/1.2 var(--f-head);display:block;margin-bottom:8px">Prefiero</span>
+          <div class="pref">
+            <label><input type="radio" id="p-llamada" name="Preferencia" value="Llamada" checked> Llamada</label>
+            <label><input type="radio" id="p-reunion" name="Preferencia" value="Reunión en el taller o en la empresa"> Reunión</label>
+            <label><input type="radio" id="p-video" name="Preferencia" value="Videollamada"> Videollamada</label>
+          </div>
+        </div>
+        <label class="full">Consulta<textarea id="f-msg" name="Consulta" placeholder="Pieza, material, cantidad y si cuenta con plano, croquis o muestra."></textarea></label>
+        <button class="btn btn-primary" type="submit">Enviar solicitud</button>
+        <small>Respondemos dentro del día hábil.</small>
+        <p class="thanks" id="gracias">Gracias. Recibimos su consulta y nos comunicaremos a la brevedad.</p>
+      </form>
     </div>
   </section>
+</main>
 
-  <footer>RyM Servicios · Modelos para fundición, diseño 3D, terminación y mecanizado · San Francisco, Córdoba, Argentina</footer>
-</div>
-
-<script>
-[['copy-tel','tel','+5435644746372'],['copy-mail','mail',null]].forEach(function(c){
-  var b=document.getElementById(c[0]); if(!b) return;
-  b.addEventListener('click',function(){
-    var el=document.getElementById(c[1]); var txt=c[2]||el.textContent; var orig=b.textContent;
-    function done(t){b.textContent=t; setTimeout(function(){b.textContent=orig},1600)}
-    function sel(){var r=document.createRange(); r.selectNodeContents(el); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); done('Seleccionado')}
-    try{navigator.clipboard.writeText(txt).then(function(){done('Copiado')},sel)}catch(e){sel()}
-  });
-});
-</script>
-
+<footer>
+  <div class="c">
+    <span>RyM Servicios · Modelos para fundición · San Francisco, Córdoba, Argentina</span>
+    <span>Diseño 3D · Modelería en madera · Cajas de noyo · Reproducción de piezas</span>
+  </div>
+</footer>
 
 <script type="module" src="model-viewer.min.js"></script>
 <script>
 (function(){
-  var mv=document.getElementById('mv'), bp=document.getElementById('b-pieza'), bm=document.getElementById('b-modelo');
-  var K=1.037;
+  var mv=document.getElementById('mv'), bp=document.getElementById('b-pieza'), bm=document.getElementById('b-modelo'), K=1.037;
+  function f(v){return (Math.round(v*10)/10).toFixed(1).replace('.',',')+' mm'}
   function set(model){
     bp.setAttribute('aria-pressed',String(!model)); bm.setAttribute('aria-pressed',String(model));
-    var k=model?K:1;
-    mv.setAttribute('scale',k+' '+k+' '+k);
-    document.getElementById('d1').textContent=(Math.round(1500*k)/10).toFixed(1).replace('.',',')+' mm';
-    document.getElementById('d2').textContent=(Math.round(860*k)/10).toFixed(1).replace('.',',')+' mm';
+    var k=model?K:1; mv.setAttribute('scale',k+' '+k+' '+k);
+    document.getElementById('d1').textContent=f(150*k); document.getElementById('d2').textContent=f(86*k);
     document.getElementById('d3').textContent=model?'+3,7 %':'0 %';
-    document.getElementById('note').textContent=model?'Este es el modelo que se moldea: 3,7 % más grande en todas las medidas, con el color del modelo impreso. El hierro se contrae al enfriarse y la pieza sale justa.':'Así queda la pieza en hierro, ya fundida. Tocá "Modelo para moldear" para ver cómo la dibujamos más grande, para que al enfriarse el metal llegue justo a la medida.';
+    document.getElementById('note').textContent=model?'Modelo para moldear: 3,7 % más grande en todas sus medidas. Al enfriarse, el hierro se contrae y la pieza llega a su medida final.':'Pieza en hierro, terminada. El modelo se dibuja más grande para que, al enfriarse el metal, la pieza llegue a su medida.';
     try{var m=mv.model&&mv.model.materials[0]; if(m){m.pbrMetallicRoughness.setBaseColorFactor(model?[0.78,0.52,0.18,1]:[0.42,0.45,0.48,1]); m.pbrMetallicRoughness.setMetallicFactor(model?0.05:0.6); m.pbrMetallicRoughness.setRoughnessFactor(model?0.7:0.45);}}catch(e){}
   }
   bp.addEventListener('click',function(){set(false)}); bm.addEventListener('click',function(){set(true)});
+  [['copy-mail','mail'],['copy-tel','tel']].forEach(function(c){
+    var b=document.getElementById(c[0]);
+    b.addEventListener('click',function(){
+      var el=document.getElementById(c[1]);
+      function done(t){b.textContent=t; setTimeout(function(){b.textContent='Copiar'},1600)}
+      try{navigator.clipboard.writeText(el.textContent.trim()).then(function(){done('Copiado')},function(){done('Seleccione y copie')})}catch(e){done('Seleccione y copie')}
+    });
+  });
+  if(location.hash==='#gracias'){var t=document.getElementById('gracias'); t.classList.add('show'); document.getElementById('contacto').scrollIntoView();}
 })();
 </script>
 </body>
