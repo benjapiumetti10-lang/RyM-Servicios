@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 z" fill="#12304F"/></marker>
+  </defs>
+  <rect width="400" height="300" fill="#fff"/>
+  <rect x="12" y="12" width="376" height="276" fill="none" stroke="#12304F" stroke-width="1.6"/>
+  <g stroke="#12304F" fill="none" stroke-linejoin="round">
+    <!-- Vista frontal -->
+    <path d="M52 210 H188 V197 H156 V133 H84 V197 H52 Z" stroke-width="2"/>
+    <path d="M84 165 L64 197 M156 165 L176 197" stroke-width="2"/>
+    <path d="M93 133 V210 M147 133 V210" stroke-width="1" stroke-dasharray="5 3"/>
+    <path d="M120 122 V222" stroke-width=".8" stroke-dasharray="12 3 2 3"/>
+    <path d="M52 216 V238 M188 216 V238" stroke-width=".7"/>
+    <path d="M55 232 H185" stroke-width=".9" marker-start="url(#a)" marker-end="url(#a)"/>
+    <path d="M162 133 H210 M194 210 H210" stroke-width=".7"/>
+    <path d="M204 136 V207" stroke-width=".9" marker-start="url(#a)" marker-end="url(#a)"/>
+    <!-- Vista superior -->
+    <circle cx="300" cy="150" r="67" stroke-width="2"/>
+    <circle cx="300" cy="150" r="36" stroke-width="2"/>
+    <circle cx="300" cy="150" r="27" stroke-width="1.4"/>
+    <g stroke-width="1.6">
+      <circle cx="337" cy="113" r="6"/><circle cx="263" cy="113" r="6"/><circle cx="263" cy="187" r="6"/><circle cx="337" cy="187" r="6"/>
+    </g>
+    <path d="M336 146 H367 V154 H336 M264 146 H233 V154 H264 M296 114 V83 H304 V114 M296 186 V217 H304 V186" stroke-width="1.4"/>
+    <path d="M222 150 H378 M300 72 V228" stroke-width=".8" stroke-dasharray="12 3 2 3"/>
+  </g>
+  <g fill="#12304F" font-size="11" font-weight="700">
+    <text x="120" y="248" text-anchor="middle">Ø150</text>
+    <text x="212" y="176">86</text>
+  </g>
+  <g fill="#55626F" font-size="9" letter-spacing=".6">
+    <text x="120" y="112" text-anchor="middle">VISTA FRONTAL</text>
+    <text x="300" y="62" text-anchor="middle">VISTA SUPERIOR</text>
+  </g>
+  <g>
+    <rect x="252" y="246" width="136" height="42" fill="#fff" stroke="#12304F" stroke-width="1.2"/>
+    <path d="M252 262 H388 M320 262 V288" stroke="#12304F" stroke-width=".8"/>
+    <text x="260" y="258" font-size="9.5" font-weight="700" fill="#12304F">BRIDA DE APOYO</text>
+    <text x="260" y="278" font-size="8.5" fill="#55626F">Hierro gris</text>
+    <text x="328" y="278" font-size="8.5" fill="#55626F">Esc. 1:2</text>
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <pattern id="sand" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#E7D9BE"/>
+      <circle cx="2" cy="2" r=".9" fill="#CDB894"/><circle cx="6" cy="5.5" r=".7" fill="#D6C4A2"/>
+    </pattern>
+    <linearGradient id="metal" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F6B451"/><stop offset="1" stop-color="#E2711F"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="#fff"/>
+  <!-- caja de moldeo -->
+  <rect x="80" y="82" width="270" height="180" fill="url(#sand)"/>
+  <!-- cavidad con metal -->
+  <path d="M135 172 H285 V190 H285 L285 190 H135 Z" fill="url(#metal)"/>
+  <path d="M172 112 H248 V172 H172 Z" fill="url(#metal)"/>
+  <path d="M140 172 L172 150 V172 Z M280 172 L248 150 V172 Z" fill="url(#metal)"/>
+  <!-- bebedero y canal -->
+  <path d="M100 70 H124 L117 90 V196 H135 V190 H135 V184 H117" fill="none"/>
+  <path d="M100 70 H124 L117 92 V180 H135 V190 H109 V92 Z" fill="url(#metal)"/>
+  <!-- noyo -->
+  <rect x="191" y="100" width="38" height="102" fill="#9AA3AD" stroke="#6E7883" stroke-width="1"/>
+  <!-- marco -->
+  <rect x="80" y="82" width="270" height="180" fill="none" stroke="#12304F" stroke-width="4"/>
+  <path d="M80 172 H350" stroke="#12304F" stroke-width="2" stroke-dasharray="6 4"/>
+  <path d="M72 82 H80 M72 262 H80 M350 82 H358 M350 262 H358" stroke="#12304F" stroke-width="4"/>
+  <!-- cuchara -->
+  <g transform="translate(-4 20) rotate(-28 70 40)">
+    <path d="M40 22 H96 L90 62 H46 Z" fill="#55626F" stroke="#12304F" stroke-width="2"/>
+    <path d="M44 30 H92" stroke="#F6B451" stroke-width="5"/>
+    <path d="M96 30 L140 26" stroke="#12304F" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <path d="M103 64 C107 68 110 70 112 74" stroke="#F39A33" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <!-- rótulos -->
+  <g font-size="10" fill="#12304F" font-weight="700">
+    <text x="262" y="72">CAJA DE MOLDEO</text>
+    <text x="236" y="136">NOYO</text>
+    <text x="140" y="218" fill="#B65A14">METAL</text>
+    <text x="150" y="58">COLADA</text>
+  </g>
+  <g stroke="#12304F" stroke-width=".8" fill="none">
+    <path d="M233 133 L224 140"/>
+    <path d="M160 210 L190 186"/>
+    <path d="M300 75 L300 82"/>
+  </g>
+  <text x="80" y="284" font-size="9.5" fill="#55626F">Moldeo y colada coordinados con fundiciones de la zona</text>
+</svg>
