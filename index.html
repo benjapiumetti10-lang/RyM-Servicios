@@ -116,6 +116,40 @@ dialog .x{position:fixed;top:12px;right:14px;background:#fff;color:var(--navy);b
 .steps p{color:var(--ink-2);font-size:15px}
 .badge{position:absolute;top:10px;left:10px;font:700 12px/1 var(--f-head);background:var(--bronze);color:#fff;padding:6px 8px}
 
+/* Despiece 3D */
+.dp{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:clamp(16px,2.5vw,28px);margin-top:22px;align-items:start}
+.dp-view{position:relative;aspect-ratio:16/11;background:radial-gradient(ellipse at 50% 42%,#fff 0%,#eef0f2 55%,#d9dde1 100%);overflow:hidden;cursor:grab;box-shadow:0 18px 40px -26px rgba(18,48,79,.45)}
+.dp-view:active{cursor:grabbing}
+.dp-view canvas{width:100%;height:100%;display:block}
+.dp-view::after{content:"Cargando el modelo 3D…";position:absolute;inset:0;display:grid;place-items:center;font:600 14px/1 var(--f-head);color:var(--ink-2);pointer-events:none}
+.ready .dp-view::after{content:none}
+.error .dp-view::after{content:"No se pudo cargar el 3D en este equipo."}
+.dp-labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.dp-tag{position:absolute;left:0;top:0;margin:-13px 0 0 -9px;font:600 12.5px/1 var(--f-head);background:rgba(255,255,255,.94);color:var(--navy);padding:7px 9px 7px 20px;white-space:nowrap;box-shadow:0 3px 10px -4px rgba(11,33,57,.45);transition:opacity .25s;opacity:0}
+.dp-tag::before{content:"";position:absolute;left:5px;top:50%;width:8px;height:8px;margin-top:-4px;background:var(--bronze);border-radius:50%;box-shadow:0 0 0 2px #fff}
+.dp-tag.r{margin-left:9px;padding:7px 20px 7px 9px}
+.dp-tag.r::before{left:auto;right:5px}
+.dp-hint{position:absolute;right:10px;bottom:10px;font-size:12.5px;color:var(--ink-2);background:rgba(255,255,255,.8);padding:5px 8px;pointer-events:none}
+.dp-tabs{display:grid;gap:8px}
+.dp-tabs button{display:flex;gap:12px;align-items:center;text-align:left;background:#fff;border:1px solid var(--line);padding:13px 14px;cursor:pointer;font:700 16px/1.2 var(--f-head);color:var(--navy);transition:background .15s,border-color .15s}
+.dp-tabs button:hover{border-color:var(--navy)}
+.dp-tabs button span{font:700 12px/1 var(--f-head);width:24px;height:24px;display:grid;place-items:center;background:var(--steel);flex:none}
+.dp-tabs button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.dp-tabs button[aria-pressed="true"] span{background:var(--bronze);color:#fff}
+.dp-desc{color:var(--ink-2);font-size:15.5px;margin-top:14px;min-height:6.2em}
+.dp-range{margin-top:12px}
+.dp-range input{width:100%;accent-color:var(--bronze);height:28px;cursor:pointer}
+.dp-range div{display:flex;justify-content:space-between;font:600 12px/1 var(--f-head);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
+
+/* Antes y después */
+.ab{position:relative;margin-top:22px;max-width:1000px;aspect-ratio:1200/747;overflow:hidden;box-shadow:0 18px 40px -26px rgba(18,48,79,.45);--x:50%;user-select:none;touch-action:pan-y}
+.ab img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ab .bf{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x)) 0 0)}
+.ab .ln{position:absolute;top:0;bottom:0;left:var(--x);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(11,33,57,.25);pointer-events:none}
+.ab .kn{position:absolute;top:50%;left:var(--x);width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--bronze);color:#fff;display:grid;place-items:center;font:700 18px/1 var(--f-head);box-shadow:0 4px 14px -4px rgba(11,33,57,.6);pointer-events:none;letter-spacing:2px}
+.ab .tg{position:absolute;bottom:12px;font:600 13px/1 var(--f-head);background:rgba(11,33,57,.82);color:#fff;padding:8px 10px;pointer-events:none}
+.ab .tg.l{left:12px} .ab .tg.r{right:12px}
+.ab input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
 
 /* Contacto */
 .contact{background:var(--navy);color:#fff}
@@ -153,6 +187,15 @@ footer img{height:34px;width:auto}
   .steps{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:8px;margin-inline:calc(-1*clamp(16px,4vw,40px));padding-inline:clamp(16px,4vw,40px)}
   .steps li{flex:0 0 74%;scroll-snap-align:start}
   .steps li::after{display:none!important}
+  .dp{grid-template-columns:minmax(0,1fr)}
+  .dp-view{aspect-ratio:4/3.3}
+  .dp-tabs{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .dp-tabs button{flex-direction:column;gap:6px;padding:10px 4px;font-size:13px;text-align:center;justify-content:flex-start}
+  .dp-desc{min-height:0}
+  .dp-tag{font-size:11.5px;padding:6px 7px 6px 18px}
+  .ab .tg{font-size:11.5px;padding:6px 8px;bottom:8px}
+  .ab .tg.l{left:8px} .ab .tg.r{right:8px}
+  .ab .kn{width:40px;height:40px;margin:-20px 0 0 -20px}
   .swipe{display:block!important}
 }
 @media (max-width:520px){
@@ -178,6 +221,7 @@ footer img{height:34px;width:auto}
     <nav aria-label="Secciones">
       <a href="#servicios">Servicios</a>
       <a href="#trabajos">Trabajos</a>
+      <a href="#despiece">Despiece 3D</a>
       <a href="#proceso">Proceso</a>
       <a class="btn btn-primary" href="#contacto"><span class="lg">Coordinar una llamada</span><span class="sm">Contacto</span></a>
     </nav>
@@ -261,7 +305,31 @@ footer img{height:34px;width:auto}
     </div>
   </section>
 
-  <section id="proceso">
+  <section id="despiece">
+    <div class="c">
+      <p class="eyebrow">Interactivo</p>
+      <h2>Desarme una válvula: del modelo a la pieza</h2>
+      <p class="lead">Toque cada etapa para ver cómo se hace. Gírela con el mouse o el dedo y use la barra para armarla y desarmarla.</p>
+      <div class="dp" id="despiece-app">
+        <div class="dp-view"><div class="dp-labels"></div><span class="dp-hint">Arrastre para girar</span></div>
+        <div class="dp-side">
+          <div class="dp-tabs" role="group" aria-label="Etapas">
+            <button type="button" data-stage="modelo" aria-pressed="true"><span>1</span>Modelo</button>
+            <button type="button" data-stage="caja" aria-pressed="false"><span>2</span>Caja de noyo</button>
+            <button type="button" data-stage="molde" aria-pressed="false"><span>3</span>Molde</button>
+            <button type="button" data-stage="pieza" aria-pressed="false"><span>4</span>Pieza fundida</button>
+          </div>
+          <p class="dp-desc" data-desc="modelo">Una copia de la pieza, un poco más grande por la contracción del metal. Va partido en dos mitades con espigas de centrado, y las portadas negras sostienen el noyo dentro del molde.</p>
+          <p class="dp-desc" data-desc="caja" hidden>En la caja de noyo se forma el noyo: un bloque de arena con la forma del hueco interior de la pieza. Las dos mitades cierran con espigas para que salga siempre igual.</p>
+          <p class="dp-desc" data-desc="molde" hidden>El modelo deja su huella en la arena. Se coloca el noyo, se cierran las dos mitades y se cuela el metal por el bebedero. Lo coordinamos con fundiciones de la zona.</p>
+          <p class="dp-desc" data-desc="pieza" hidden>El resultado: el cuerpo de la válvula fundido, hueco por dentro gracias al noyo. Si necesita mecanizado, le recomendamos talleres de confianza.</p>
+          <label class="dp-range"><span class="eyebrow" style="color:var(--ink-2)">Armar y desarmar</span><input id="dp-range" type="range" min="0" max="100" value="0" aria-label="Armar y desarmar"><div><span>Armado</span><span>Desarmado</span></div></label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proceso" class="alt">
     <div class="c">
       <p class="eyebrow">Proceso</p>
       <h2>Así se hace una pieza, paso a paso</h2>
@@ -280,6 +348,20 @@ footer img{height:34px;width:auto}
     </div>
   </section>
 
+  <section id="antes">
+    <div class="c">
+      <p class="eyebrow">Antes y después</p>
+      <h2>Del croquis a la pieza fundida</h2>
+      <p class="lead">Muchos clientes llegan con un croquis a mano o una pieza rota. Deslice para ver en qué se convierte.</p>
+      <div class="ab" id="ab">
+        <img src="img/r/despues.jpg" alt="Cuerpo de válvula ya fundido en hierro" loading="lazy" width="1200" height="747">
+        <div class="bf"><img src="img/r/antes.jpg" alt="Croquis a mano del cuerpo de válvula con sus medidas principales" loading="lazy" width="1200" height="747"></div>
+        <span class="tg l">Croquis del cliente</span><span class="tg r">Pieza fundida</span>
+        <span class="ln"></span><span class="kn" aria-hidden="true">‹›</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Comparar croquis y pieza fundida">
+      </div>
+    </div>
+  </section>
 
   <section id="contacto" class="contact">
     <div class="c">
@@ -317,6 +399,14 @@ footer img{height:34px;width:auto}
 <dialog id="lb"><button class="x" type="button" id="lbx">Cerrar ✕</button><img id="lbi" alt=""><p id="lbt"></p></dialog>
 
 <script type="module" src="model-viewer.min.js"></script>
+<script type="module">
+/* El despiece 3D se carga recién cuando el visitante llega a esa parte */
+const dp=document.getElementById('despiece-app');
+const io=new IntersectionObserver((e)=>{ if(!e.some((x)=>x.isIntersecting)) return; io.disconnect();
+  import('./despiece.min.js').then((m)=>m.initDespiece(dp,'img/r/despiece.glb')).catch(()=>dp.classList.add('error'));
+},{rootMargin:'500px'});
+io.observe(dp);
+</script>
 <script>
 (function(){
   /* Ver foto en grande */
@@ -327,6 +417,18 @@ footer img{height:34px;width:auto}
   })});
   document.getElementById('lbx').addEventListener('click',function(){lb.close()});
   lb.addEventListener('click',function(e){if(e.target===lb) lb.close()});
+  /* Antes y después */
+  var ab=document.getElementById('ab'), abi=ab.querySelector('input');
+  function abSet(v){ab.style.setProperty('--x',v+'%')}
+  abi.addEventListener('input',function(){abSet(abi.value)});
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    var abo=new IntersectionObserver(function(e){
+      if(!e.some(function(x){return x.isIntersecting})) return; abo.disconnect();
+      var t0=performance.now();
+      (function step(t){var k=Math.min(1,(t-t0)/1600), v=50-22*Math.sin(k*Math.PI); abSet(v); abi.value=v; if(k<1) requestAnimationFrame(step);})(t0);
+    },{threshold:0.6});
+    abo.observe(ab);
+  }
   if(/enviado=1/.test(location.search)) document.getElementById('gracias').classList.add('show');
 })();
 </script>
