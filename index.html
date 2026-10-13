@@ -53,7 +53,12 @@ nav .btn{padding:11px 15px;opacity:1}
 
 /* Portada */
 .hero{background:linear-gradient(180deg,var(--steel),#fff)}
-.hero .c{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,4vw,48px);align-items:center;padding-block:clamp(28px,4vw,52px)}
+.hero .c{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);grid-template-areas:"txt mv" "txt ab";gap:14px clamp(24px,4vw,48px);align-items:center;padding-block:clamp(22px,3vw,40px)}
+.htxt{grid-area:txt}
+.hmv{grid-area:mv}
+.hab{grid-area:ab}
+.hero .ab{width:100%}
+@media (min-width:861px){.hero model-viewer,.hero .ab{max-height:calc((100svh - 150px)/2);min-height:250px}}
 .hero h1{font:800 clamp(30px,4vw,48px)/1.06 var(--f-head);letter-spacing:-.02em;margin-top:8px;text-wrap:balance}
 .hero .lead{font-size:18px}
 .hero .lead b{color:var(--ink)}
@@ -142,12 +147,12 @@ dialog .x{position:fixed;top:12px;right:14px;background:#fff;color:var(--navy);b
 .dp-range div{display:flex;justify-content:space-between;font:600 12px/1 var(--f-head);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2)}
 
 /* Antes y después */
-.ab{position:relative;margin-top:22px;max-width:1000px;aspect-ratio:1200/747;overflow:hidden;box-shadow:0 18px 40px -26px rgba(18,48,79,.45);--x:50%;user-select:none;touch-action:pan-y}
-.ab img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ab{position:relative;aspect-ratio:16/10;overflow:hidden;--x:50%;user-select:none;touch-action:pan-y}
+.ab img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .ab .bf{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--x)) 0 0)}
 .ab .ln{position:absolute;top:0;bottom:0;left:var(--x);width:3px;margin-left:-1.5px;background:#fff;box-shadow:0 0 0 1px rgba(11,33,57,.25);pointer-events:none}
 .ab .kn{position:absolute;top:50%;left:var(--x);width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:var(--bronze);color:#fff;display:grid;place-items:center;font:700 18px/1 var(--f-head);box-shadow:0 4px 14px -4px rgba(11,33,57,.6);pointer-events:none;letter-spacing:2px}
-.ab .tg{position:absolute;bottom:12px;font:600 13px/1 var(--f-head);background:rgba(11,33,57,.82);color:#fff;padding:8px 10px;pointer-events:none}
+.ab .tg{position:absolute;top:10px;font:600 13px/1 var(--f-head);background:rgba(11,33,57,.82);color:#fff;padding:8px 10px;pointer-events:none}
 .ab .tg.l{left:12px} .ab .tg.r{right:12px}
 .ab input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
 
@@ -188,7 +193,7 @@ footer img{height:34px;width:auto}
   body{font-size:16px}
   nav a:not(.btn){display:none}
   .hero .c,.contact .c{grid-template-columns:minmax(0,1fr)}
-  .hero figure{order:-1}
+  .hero .c{grid-template-areas:"mv" "ab" "txt"}
   .hero .lead{font-size:16.5px}
   .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
   .services,.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -204,7 +209,7 @@ footer img{height:34px;width:auto}
   .dp-tabs button{flex-direction:column;gap:6px;padding:10px 4px;font-size:13px;text-align:center;justify-content:flex-start}
   .dp-desc{min-height:0}
   .dp-tag{font-size:11.5px;padding:6px 7px 6px 18px}
-  .ab .tg{font-size:11.5px;padding:6px 8px;bottom:8px}
+  .ab .tg{display:none}
   .ab .tg.l{left:8px} .ab .tg.r{right:8px}
   .ab .kn{width:40px;height:40px;margin:-20px 0 0 -20px}
   .swipe{display:block!important}
@@ -212,6 +217,8 @@ footer img{height:34px;width:auto}
 @media (max-width:520px){
   .logo img{height:40px}
   nav .lg{display:none} nav .sm{display:inline}
+  .hero .lg{display:none} .hero .sm{display:inline}
+  .hero figcaption{font-size:12.5px;padding:6px 10px}
   nav .btn{padding:10px 12px;font-size:14px}
   .gallery figcaption span{display:none}
   .gallery figcaption{padding:8px 10px}
@@ -242,7 +249,7 @@ footer img{height:34px;width:auto}
 <main id="inicio">
   <div class="hero">
     <div class="c">
-      <div>
+      <div class="htxt">
         <p class="eyebrow">San Francisco, Córdoba · más de 40 años</p>
         <h1>Modelos y herramentales para fundición</h1>
         <p class="lead">Hacemos modelos, placas y cajas de noyo en <b>madera, aluminio, resina epoxi, telgopor e impresión 3D</b>, desde cero o a partir de una pieza existente. No hace falta que tenga plano: dibujamos la pieza desde un croquis o la muestra. Le entregamos <b>herramentales listos para la producción</b>: trabajos de alta precisión y complejidad.</p>
@@ -257,9 +264,18 @@ footer img{height:34px;width:auto}
           <div><b>CAD 3D</b><span>SolidWorks e Inventor</span></div>
         </div>
       </div>
-      <figure>
+      <figure class="hmv">
         <model-viewer id="mv" src="img/r/valvula.glb" poster="img/r/portada.jpg" alt="Modelo 3D de válvula de retención en madera laqueada, con portadas en negro" camera-controls auto-rotate auto-rotate-delay="2500" rotation-per-second="18deg" camera-orbit="-30deg 68deg auto" field-of-view="28deg" shadow-intensity="1.2" exposure="1.0" environment-image="neutral" tone-mapping="neutral" interaction-prompt="none" touch-action="pan-y"></model-viewer>
-        <figcaption>Modelo de válvula de retención · <b>gírelo con el mouse o el dedo</b></figcaption>
+        <figcaption><span class="lg">Modelo de válvula de retención · <b>gírelo con el mouse o el dedo</b></span><span class="sm">Válvula en 3D · <b>gírela con el dedo</b></span></figcaption>
+      </figure>
+      <figure class="hab">
+        <div class="ab" id="ab">
+          <img src="img/r/despues.jpg" alt="Cuerpo de válvula ya fundido en hierro" width="1200" height="747">
+          <div class="bf"><img src="img/r/antes.jpg" alt="Croquis a mano del cuerpo de válvula con sus medidas principales" width="1200" height="747"></div>
+                    <span class="ln"></span><span class="kn" aria-hidden="true">‹›</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Comparar croquis y pieza fundida">
+        </div>
+        <figcaption><span class="lg">Ejemplo: del croquis a la pieza fundida · <b>deslice para comparar</b></span><span class="sm">Ejemplo: croquis → pieza · <b>deslice</b></span></figcaption>
       </figure>
     </div>
   </div>
@@ -360,22 +376,6 @@ footer img{height:34px;width:auto}
     </div>
   </section>
 
-  <section id="antes">
-    <div class="c">
-      <p class="eyebrow">Antes y después</p>
-      <h2>Del croquis a la pieza fundida</h2>
-      <p class="lead">Muchos clientes llegan con un croquis a mano o una pieza rota. Deslice para ver en qué se convierte.</p>
-      <div class="ab" id="ab">
-        <img src="img/r/despues.jpg" alt="Cuerpo de válvula ya fundido en hierro" loading="lazy" width="1200" height="747">
-        <div class="bf"><img src="img/r/antes.jpg" alt="Croquis a mano del cuerpo de válvula con sus medidas principales" loading="lazy" width="1200" height="747"></div>
-        <span class="tg l">Croquis (ejemplo)</span><span class="tg r">Pieza fundida</span>
-        <span class="ln"></span><span class="kn" aria-hidden="true">‹›</span>
-        <input type="range" min="0" max="100" value="50" aria-label="Comparar croquis y pieza fundida">
-      </div>
-      <p class="note">Ejemplo ilustrativo: croquis y pieza recreados para mostrar el proceso, no corresponden a un trabajo de un cliente.</p>
-    </div>
-  </section>
-
   <section id="contacto" class="contact">
     <div class="c">
       <div>
@@ -452,8 +452,8 @@ io.observe(dp);
   if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
     var abo=new IntersectionObserver(function(e){
       if(!e.some(function(x){return x.isIntersecting})) return; abo.disconnect();
-      var t0=performance.now();
-      (function step(t){var k=Math.min(1,(t-t0)/1600), v=50-22*Math.sin(k*Math.PI); abSet(v); abi.value=v; if(k<1) requestAnimationFrame(step);})(t0);
+      setTimeout(function(){var t0=performance.now();
+      (function step(t){var k=Math.min(1,(t-t0)/1600), v=50-22*Math.sin(k*Math.PI); abSet(v); abi.value=v; if(k<1) requestAnimationFrame(step);})(t0);},1800);
     },{threshold:0.6});
     abo.observe(ab);
   }
