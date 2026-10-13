@@ -88,7 +88,7 @@ model-viewer:active{cursor:grabbing}
 .filters{display:flex;gap:6px;flex-wrap:wrap}
 .filters button{font:600 14px/1 var(--f-head);background:#fff;color:var(--navy);border:1px solid #BFC7CF;padding:9px 13px;cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
-.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:20px}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:20px}
 .gallery figure{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column}
 .gallery figure[hidden]{display:none}
 .gallery button{display:block;padding:0;border:0;background:#E9ECEF;cursor:zoom-in;width:100%}
@@ -137,7 +137,7 @@ footer .c{display:flex;justify-content:space-between;align-items:center;gap:12px
 footer img{height:34px;width:auto}
 
 @media (max-width:1060px){
-  .services,.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .services{grid-template-columns:repeat(3,minmax(0,1fr))}
 }
 @media (max-width:860px){
   body{font-size:16px}
@@ -250,27 +250,14 @@ footer img{height:34px;width:auto}
           <p class="eyebrow">Trabajos</p>
           <h2>Lo que hacemos</h2>
         </div>
-        <div class="filters" role="group" aria-label="Filtrar trabajos">
-          <button type="button" data-f="todos" aria-pressed="true">Todos</button>
-          <button type="button" data-f="madera" aria-pressed="false">Madera</button>
-          <button type="button" data-f="aluminio" aria-pressed="false">Aluminio</button>
-          <button type="button" data-f="3d" aria-pressed="false">3D</button>
-          <button type="button" data-f="noyos" aria-pressed="false">Noyos y placas</button>
-        </div>
       </div>
       <div class="gallery" id="gallery">
         <figure data-r="madera"><button type="button"><img src="img/r/valvula.jpg" alt="Válvula de retención: Modelo en madera laqueada, con portadas" loading="lazy" width="900" height="675"></button><figcaption><b>Válvula de retención</b><span>Modelo en madera laqueada, con portadas</span></figcaption></figure>
-        <figure data-r="noyos madera"><button type="button"><img src="img/r/caja-noyo-valvula.jpg" alt="Caja de noyo de válvula: Madera, con espigas de centrado" loading="lazy" width="900" height="675"></button><figcaption><b>Caja de noyo de válvula</b><span>Madera, con espigas de centrado</span></figcaption></figure>
         <figure data-r="madera"><button type="button"><img src="img/r/carcasa-bomba.jpg" alt="Carcasa de bomba: Modelo en madera, con portadas" loading="lazy" width="900" height="675"></button><figcaption><b>Carcasa de bomba</b><span>Modelo en madera, con portadas</span></figcaption></figure>
-        <figure data-r="aluminio"><button type="button"><img src="img/r/polea.jpg" alt="Polea de rayos: Pieza fundida en aluminio" loading="lazy" width="900" height="675"></button><figcaption><b>Polea de rayos</b><span>Pieza fundida en aluminio</span></figcaption></figure>
-        <figure data-r="3d noyos"><button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/84530877_Mold_Drag_%289415669123%29.jpg/960px-84530877_Mold_Drag_%289415669123%29.jpg" alt="Placa de molde para imprimir: Diseño 3D con portadas y llenado" loading="lazy" width="960" height="720" referrerpolicy="no-referrer"></button><figcaption><b>Placa de molde para imprimir</b><span>Diseño 3D con portadas y llenado</span><small class="cr">Foto: <a href="https://commons.wikimedia.org/wiki/File:84530877_Mold_Drag_(9415669123).jpg" target="_blank" rel="noopener">OKFoundryCompany</a>, CC BY 2.0</small></figcaption></figure>
-        <figure data-r="madera"><button type="button"><img src="img/r/sinfin.jpg" alt="Sin fin: Modelo torneado en madera" loading="lazy" width="900" height="675"></button><figcaption><b>Sin fin</b><span>Modelo torneado en madera</span></figcaption></figure>
-        <figure data-r="aluminio"><button type="button"><img src="img/r/modelo-aluminio.jpg" alt="Modelo en aluminio: Para alta producción" loading="lazy" width="900" height="675"></button><figcaption><b>Modelo en aluminio</b><span>Para alta producción</span></figcaption></figure>
-        <figure data-r="3d noyos"><button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/CNHExOne_006_%289415919235%29.jpg/960px-CNHExOne_006_%289415919235%29.jpg" alt="Molde de arena impreso en 3D: Mitad del molde, lista para armar" loading="lazy" width="960" height="720" referrerpolicy="no-referrer"></button><figcaption><b>Molde de arena impreso en 3D</b><span>Mitad del molde, lista para armar</span><small class="cr">Foto: <a href="https://commons.wikimedia.org/wiki/File:CNHExOne_006_(9415919235).jpg" target="_blank" rel="noopener">OKFoundryCompany</a>, CC BY 2.0</small></figcaption></figure>
-        <figure data-r="aluminio"><button type="button"><img src="img/r/cuerpo-bridado.jpg" alt="Cuerpo bridado: Modelo en aluminio" loading="lazy" width="900" height="675"></button><figcaption><b>Cuerpo bridado</b><span>Modelo en aluminio</span></figcaption></figure>
-        <figure data-r="madera"><button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Wooden_Pattern_for_Bevel_Gear_Wheel_-_54798155851.jpg/960px-Wooden_Pattern_for_Bevel_Gear_Wheel_-_54798155851.jpg" alt="Engranaje cónico: Modelo en madera, dientes tallados" loading="lazy" width="960" height="720" referrerpolicy="no-referrer"></button><figcaption><b>Engranaje cónico</b><span>Modelo en madera, dientes tallados</span><small class="cr">Foto: <a href="https://commons.wikimedia.org/wiki/File:Wooden_Pattern_for_Bevel_Gear_Wheel_-_54798155851.jpg" target="_blank" rel="noopener">Tim Sheerman-Chase</a>, CC BY 4.0</small></figcaption></figure>
-        <figure data-r="noyos"><button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Casting_mould_for_pump_impellor.JPG/960px-Casting_mould_for_pump_impellor.JPG" alt="Molde de impulsor de bomba: Molde de arena con su noyo" loading="lazy" width="960" height="720" referrerpolicy="no-referrer"></button><figcaption><b>Molde de impulsor de bomba</b><span>Molde de arena con su noyo</span><small class="cr">Foto: <a href="https://commons.wikimedia.org/wiki/File:Casting_mould_for_pump_impellor.JPG" target="_blank" rel="noopener">S.J. de Waard</a>, CC BY 2.5</small></figcaption></figure>
+        <figure data-r="noyos madera"><button type="button"><img src="img/r/caja-noyo-valvula.jpg" alt="Caja de noyo de válvula: Madera, con espigas de centrado" loading="lazy" width="900" height="675"></button><figcaption><b>Caja de noyo de válvula</b><span>Madera, con espigas de centrado</span></figcaption></figure>
         <figure data-r="madera"><button type="button"><img src="img/r/valvula-fundida.jpg" alt="Cuerpo de válvula: La pieza ya fundida" loading="lazy" width="900" height="675"></button><figcaption><b>Cuerpo de válvula</b><span>La pieza ya fundida</span></figcaption></figure>
+        <figure data-r="madera"><button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Wooden_Pattern_for_Bevel_Gear_Wheel_-_54798155851.jpg/960px-Wooden_Pattern_for_Bevel_Gear_Wheel_-_54798155851.jpg" alt="Engranaje cónico: Modelo en madera, dientes tallados" loading="lazy" width="960" height="720" referrerpolicy="no-referrer"></button><figcaption><b>Engranaje cónico</b><span>Modelo en madera, dientes tallados</span><small class="cr">Foto: <a href="https://commons.wikimedia.org/wiki/File:Wooden_Pattern_for_Bevel_Gear_Wheel_-_54798155851.jpg" target="_blank" rel="noopener">Tim Sheerman-Chase</a>, CC BY 4.0</small></figcaption></figure>
+        <figure data-r="3d noyos"><button type="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/CNHExOne_006_%289415919235%29.jpg/960px-CNHExOne_006_%289415919235%29.jpg" alt="Molde de arena impreso en 3D: Mitad del molde, lista para armar" loading="lazy" width="960" height="720" referrerpolicy="no-referrer"></button><figcaption><b>Molde de arena impreso en 3D</b><span>Mitad del molde, lista para armar</span><small class="cr">Foto: <a href="https://commons.wikimedia.org/wiki/File:CNHExOne_006_(9415919235).jpg" target="_blank" rel="noopener">OKFoundryCompany</a>, CC BY 2.0</small></figcaption></figure>
       </div>
       <p class="note">Imágenes de referencia de los trabajos que hacemos; las fotos de terceros llevan su autor y licencia. Por confidencialidad no mostramos piezas ni planos de clientes.</p>
     </div>
@@ -334,12 +321,6 @@ footer img{height:34px;width:auto}
 <script type="module" src="model-viewer.min.js"></script>
 <script>
 (function(){
-  /* Filtro de trabajos */
-  var btns=document.querySelectorAll('.filters button'), figs=document.querySelectorAll('#gallery figure');
-  btns.forEach(function(b){b.addEventListener('click',function(){
-    btns.forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
-    figs.forEach(function(f){f.hidden=!(b.dataset.f==='todos'||f.dataset.r.split(' ').indexOf(b.dataset.f)>=0)});
-  })});
   /* Ver foto en grande */
   var lb=document.getElementById('lb'), lbi=document.getElementById('lbi'), lbt=document.getElementById('lbt');
   document.querySelectorAll('#gallery button').forEach(function(b){b.addEventListener('click',function(){
