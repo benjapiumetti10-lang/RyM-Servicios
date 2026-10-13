@@ -163,6 +163,17 @@ label{display:flex;flex-direction:column;gap:5px;font:600 14px/1.2 var(--f-head)
 input,textarea{font:400 16px/1.4 var(--f-body);padding:10px 12px;border:1px solid #BFC7CF;background:#fff;color:var(--ink);width:100%;border-radius:0}
 textarea{min-height:92px;resize:vertical}
 form .btn{grid-column:1/-1}
+.file{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.flabel{width:100%;font:600 14px/1.2 var(--f-head)}
+.flabel em{font-style:normal;font-weight:500;color:var(--ink-2)}
+.fbtn{flex-direction:row;cursor:pointer}
+.fbtn input{position:absolute;width:1px;height:1px;opacity:0}
+.fbtn span{display:inline-block;font:600 14px/1 var(--f-head);color:var(--navy);border:2px solid var(--navy);padding:10px 14px}
+.fbtn:hover span{background:var(--steel)}
+.fbtn input:focus-visible+span{outline:3px solid var(--bronze);outline-offset:2px}
+.fname{font-size:13.5px;color:var(--ink-2);min-width:0;overflow-wrap:anywhere}
+.fname.err{color:#B3261E;font-weight:600}
+
 .thanks{display:none;grid-column:1/-1;background:#F5EDE0;border-left:4px solid var(--bronze);padding:12px 14px}
 .thanks.show{display:block}
 
@@ -323,6 +334,7 @@ footer img{height:34px;width:auto}
           <p class="dp-desc" data-desc="caja" hidden>En la caja de noyo se forma el noyo: un bloque de arena con la forma del hueco interior de la pieza. Las dos mitades cierran con espigas para que salga siempre igual.</p>
           <p class="dp-desc" data-desc="molde" hidden>El modelo deja su huella en la arena. Se coloca el noyo, se cierran las dos mitades y se cuela el metal por el bebedero. Lo coordinamos con fundiciones de la zona.</p>
           <p class="dp-desc" data-desc="pieza" hidden>El resultado: el cuerpo de la válvula fundido, hueco por dentro gracias al noyo. Si necesita mecanizado, le recomendamos talleres de confianza.</p>
+          <p class="note">Ejemplo ilustrativo: una válvula genérica dibujada para mostrar el proceso, no es una pieza de un cliente.</p>
           <label class="dp-range"><span class="eyebrow" style="color:var(--ink-2)">Armar y desarmar</span><input id="dp-range" type="range" min="0" max="100" value="0" aria-label="Armar y desarmar"><div><span>Armado</span><span>Desarmado</span></div></label>
         </div>
       </div>
@@ -356,10 +368,11 @@ footer img{height:34px;width:auto}
       <div class="ab" id="ab">
         <img src="img/r/despues.jpg" alt="Cuerpo de válvula ya fundido en hierro" loading="lazy" width="1200" height="747">
         <div class="bf"><img src="img/r/antes.jpg" alt="Croquis a mano del cuerpo de válvula con sus medidas principales" loading="lazy" width="1200" height="747"></div>
-        <span class="tg l">Croquis del cliente</span><span class="tg r">Pieza fundida</span>
+        <span class="tg l">Croquis (ejemplo)</span><span class="tg r">Pieza fundida</span>
         <span class="ln"></span><span class="kn" aria-hidden="true">‹›</span>
         <input type="range" min="0" max="100" value="50" aria-label="Comparar croquis y pieza fundida">
       </div>
+      <p class="note">Ejemplo ilustrativo: croquis y pieza recreados para mostrar el proceso, no corresponden a un trabajo de un cliente.</p>
     </div>
   </section>
 
@@ -368,10 +381,10 @@ footer img{height:34px;width:auto}
       <div>
         <p class="eyebrow">Contacto</p>
         <h2>Coordinemos una llamada</h2>
-        <p class="lead">Cuéntenos qué pieza necesita y lo llamamos. Si prefiere, también podemos visitarlo o recibirlo en el taller.</p>
+        <p class="lead">Cuéntenos qué pieza necesita y, si tiene, adjunte un plano, croquis o foto. Lo llamamos, y si prefiere también podemos visitarlo o recibirlo en el taller.</p>
         <p class="addr">Taller: Resistencia 234, San Francisco, Córdoba</p>
       </div>
-      <form id="form" action="https://formsubmit.co/rymservicios.sf@gmail.com" method="POST">
+      <form id="form" action="https://formsubmit.co/rymservicios.sf@gmail.com" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_subject" value="Nueva consulta desde la web de RyM Servicios">
         <input type="hidden" name="_cc" value="benjapiumetti10@gmail.com">
         <input type="hidden" name="_template" value="table">
@@ -382,6 +395,11 @@ footer img{height:34px;width:auto}
         <label>Teléfono<input name="Teléfono" type="tel" required autocomplete="tel"></label>
         <label>Correo<input name="email" type="email" required autocomplete="email"></label>
         <label class="full">Consulta<textarea name="Consulta" placeholder="Qué pieza necesita, material y cantidad."></textarea></label>
+        <div class="full file">
+          <span class="flabel">Adjuntar plano, croquis, foto o archivo 3D <em>(opcional)</em></span>
+          <label class="fbtn"><input id="adj" type="file" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.step,.stp,.stl,.dwg,.dxf"><span>Elegir archivo</span></label>
+          <span class="fname" id="adjn">PDF, Word, JPG, PNG, STEP, STL, DWG o DXF · hasta 10 MB</span>
+        </div>
         <button class="btn btn-primary" type="submit">Enviar</button>
         <p class="thanks" id="gracias">Gracias. Recibimos su consulta y lo llamamos a la brevedad.</p>
       </form>
@@ -417,6 +435,16 @@ io.observe(dp);
   })});
   document.getElementById('lbx').addEventListener('click',function(){lb.close()});
   lb.addEventListener('click',function(e){if(e.target===lb) lb.close()});
+  /* Adjunto: solo tipos permitidos y hasta 10 MB */
+  var adj=document.getElementById('adj'), adjn=document.getElementById('adjn'), adjDef=adjn.textContent;
+  var OK=/\.(pdf|docx?|jpe?g|png|step|stp|stl|dwg|dxf)$/i;
+  adj.addEventListener('change',function(){
+    var f=adj.files[0]; adjn.classList.remove('err');
+    if(!f){adjn.textContent=adjDef;return}
+    if(!OK.test(f.name)){adj.value='';adjn.textContent='Ese tipo de archivo no se acepta. Use PDF, Word, JPG, PNG, STEP, STL, DWG o DXF.';adjn.classList.add('err');return}
+    if(f.size>10*1024*1024){adj.value='';adjn.textContent='El archivo pesa más de 10 MB. Envíelo comprimido o en partes.';adjn.classList.add('err');return}
+    adjn.textContent=f.name+' · '+(f.size/1048576).toFixed(1)+' MB';
+  });
   /* Antes y después */
   var ab=document.getElementById('ab'), abi=ab.querySelector('input');
   function abSet(v){ab.style.setProperty('--x',v+'%')}
